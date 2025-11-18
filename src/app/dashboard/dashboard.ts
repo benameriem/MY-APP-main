@@ -28,7 +28,7 @@ export class Dashboard implements OnInit {
   departmentFilter: 'all' | 'Transport' | 'Logistique' | 'Global' = 'all';
   statusFilter: 'all' | 'active' | 'inactive' = 'all';
   // Section active
-  activeSection: 'dashboard' | 'liste' | 'transport' | 'logistique' | 'global' =
+  activeSection: 'dashboard' | 'transport' | 'logistique' | 'global' =
     'dashboard';
   // Thème (minuit par défaut)
   theme: 'midnight' | 'light' = 'midnight';
@@ -82,23 +82,13 @@ export class Dashboard implements OnInit {
     this.applicationService.getAll().subscribe({
       next: (apps) => {
         console.log('✅ Applications reçues:', apps);
-        this.applications = apps;
+        this.applications = apps?.data || [];
         console.log("📦 Nombre d'applications:", this.applications.length);
-        // Force une détection de changements au cas où SSR/hydratation bloque l'update
+
         this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('❌ Erreur lors du chargement des applications:', err);
-        console.error('Status:', err.status);
-        console.error('Message:', err.message);
-
-        // Fallback: charger les données directement depuis l'API
-        if (err.status === 0) {
-          console.log('🔄 Tentative de chargement direct...');
-          this.loadApplicationsDirectly();
-        } else if (err.status === 401) {
-          this.logout();
-        }
       },
     });
   }
@@ -406,7 +396,7 @@ export class Dashboard implements OnInit {
 
   // Navigation par sections
   setActiveSection(
-    section: 'dashboard' | 'liste' | 'transport' | 'logistique' | 'global'
+    section: 'dashboard' | 'transport' | 'logistique' | 'global'
   ) {
     this.activeSection = section;
     this.cdr.detectChanges();
@@ -415,7 +405,6 @@ export class Dashboard implements OnInit {
   getPageTitle(): string {
     const titles = {
       dashboard: 'Tableau de bord',
-      liste: 'Liste complète',
       transport: 'Transport',
       logistique: 'Logistique',
       global: 'Global',
