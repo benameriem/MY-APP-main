@@ -1,0 +1,37 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'auth_db'
+});
+
+db.connect(err => {
+    if (err) throw err;
+    console.log('Connecté à MySQL');
+});
+
+app.post('/login', (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    const sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
+    db.query(sql, [username, password], (err, results) => {
+        if (err) throw err;
+        if (results.length > 0) {
+            res.send('Connexion réussie');
+        } else {
+            res.send('Nom d’utilisateur ou mot de passe incorrect');
+        }
+    });
+});
+
+app.listen(3000, () => {
+    console.log('Serveur démarré sur http://localhost:3000');
+});

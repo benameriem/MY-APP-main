@@ -1,0 +1,388 @@
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo-section">
+      <div class="company-info">
+        <h2 class="company-name">Lumière</h2>
+        <p class="company-tagline">Dashboard</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-section">
+    <p class="menu-title">MENU</p>
+    <nav class="sidebar-nav">
+      <button 
+        class="nav-item" 
+        [class.active]="activeSection === 'dashboard'"
+        (click)="setActiveSection('dashboard')">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span>Dashboard</span>
+      </button>
+      
+      <button 
+        class="nav-item" 
+        [class.active]="activeSection === 'liste'"
+        (click)="setActiveSection('liste')">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M9 11H4a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h5m0-6v6m0-6h11a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H9m0-6V9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v2"></path>
+        </svg>
+        <span>Applications</span>
+      </button>
+      
+      <button 
+        class="nav-item" 
+        [class.active]="activeSection === 'transport'"
+        (click)="setActiveSection('transport')">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M1 3h15v9a4 4 0 0 1-4 4H2m0-8h18m-9 4h4"></path>
+          <circle cx="4" cy="16" r="2"></circle>
+          <circle cx="16" cy="16" r="2"></circle>
+        </svg>
+        <span>Transport</span>
+      </button>
+      
+      <button 
+        class="nav-item" 
+        [class.active]="activeSection === 'logistique'"
+        (click)="setActiveSection('logistique')">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        <span>Logistique</span>
+      </button>
+      
+      <button 
+        class="nav-item" 
+        [class.active]="activeSection === 'global'"
+        (click)="setActiveSection('global')">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span>Global</span>
+      </button>
+    </nav>
+  </div>
+
+  <div class="general-section">
+    <p class="menu-title">GENERAL</p>
+    <nav class="sidebar-nav">
+      <button class="nav-item">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+        <span>Paramètres</span>
+      </button>
+      
+      <button class="nav-item">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        <span>Aide</span>
+      </button>
+      
+      <button class="nav-item" (click)="logout()">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16,17 21,12 16,7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Déconnexion</span>
+      </button>
+    </nav>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<div class="main-content">
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="header-left">
+      <h1 class="page-title">{{ getPageTitle() }}</h1>
+      <p class="page-subtitle">Planifiez, priorisez et accomplissez vos tâches avec facilité.</p>
+    </div>
+    <div class="header-actions">
+      <button class="btn-action btn-secondary" (click)="exportDoc()">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7,10 12,15 17,10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Exporter Données
+      </button>
+      <button class="btn-action btn-primary" (click)="showCreateForm = !showCreateForm">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        Ajouter Projet
+      </button>
+    </div>
+  </header>
+
+  <!-- Content Area -->
+  <div class="content-area">
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <div class="stat-card green">
+        <div class="stat-header">
+          <div class="stat-info">
+            <div class="stat-label">Total Applications</div>
+            <div class="stat-value">{{ getSectionApps().length }}</div>
+          </div>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-footer">
+          <span class="stat-trend positive">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="23,6 13.5,15.5 8.5,10.5 1,18"></polyline>
+              <polyline points="17,6 23,6 23,12"></polyline>
+            </svg>
+            Augmenté du mois dernier
+          </span>
+        </div>
+      </div>
+      
+      <div class="stat-card orange">
+        <div class="stat-header">
+          <div class="stat-info">
+            <div class="stat-label">Applications Terminées</div>
+            <div class="stat-value">{{ getActiveApps().length }}</div>
+          </div>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22,4 12,14.01 9,11.01"></polyline>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-footer">
+          <span class="stat-trend positive">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="23,6 13.5,15.5 8.5,10.5 1,18"></polyline>
+              <polyline points="17,6 23,6 23,12"></polyline>
+            </svg>
+            Augmenté du mois dernier
+          </span>
+        </div>
+      </div>
+      
+      <div class="stat-card blue">
+        <div class="stat-header">
+          <div class="stat-info">
+            <div class="stat-label">Applications en Cours</div>
+            <div class="stat-value">{{ getInactiveApps().length }}</div>
+          </div>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12,6 12,12 16,14"></polyline>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-footer">
+          <span class="stat-trend neutral">
+            En Discussion
+          </span>
+        </div>
+      </div>
+      
+      <div class="stat-card purple">
+        <div class="stat-header">
+          <div class="stat-info">
+            <div class="stat-label">Applications en Attente</div>
+            <div class="stat-value">2</div>
+          </div>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-footer">
+          <span class="stat-trend neutral">
+            En Discussion
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions Bar -->
+    <div class="actions-bar" *ngIf="isAdmin">
+      <button class="btn btn-primary" (click)="showCreateForm = !showCreateForm">
+        {{ showCreateForm ? '✕ Annuler' : '+ Nouvelle Application' }}
+      </button>
+    </div>
+
+    <!-- Formulaire de création/édition -->
+    <div class="form-container" *ngIf="showCreateForm">
+      <div class="form-card">
+        <h2>{{ editingApp ? 'Modifier' : 'Créer' }} une Application</h2>
+        <form (ngSubmit)="editingApp ? updateApplication() : createApplication()">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom de l'application</label>
+              <input 
+                id="name" 
+                type="text" 
+                [(ngModel)]="newApp.name" 
+                name="name" 
+                required 
+                placeholder="Ex: Transport Manager"
+              >
+            </div>
+            <div class="form-group">
+              <label for="theme">Thème</label>
+              <input 
+                id="theme" 
+                type="text" 
+                [(ngModel)]="newApp.theme" 
+                name="theme" 
+                placeholder="Ex: Transport, Logistique..."
+              >
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="department">Département</label>
+              <select id="department" [(ngModel)]="newApp.department" name="department" required>
+                <option value="Transport">Transport</option>
+                <option value="Logistique">Logistique</option>
+                <option value="Global">Global</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="performance">Performance</label>
+              <select id="performance" [(ngModel)]="newApp.performance" name="performance">
+                <option value="Excellent">Excellent</option>
+                <option value="Bon">Bon</option>
+                <option value="Moyen">Moyen</option>
+                <option value="Faible">Faible</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="status">Statut</label>
+              <select id="status" [(ngModel)]="newApp.status" name="status">
+                <option value="active">Actif</option>
+                <option value="inactive">Inactif</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" (click)="resetForm()">Annuler</button>
+            <button type="submit" class="btn btn-primary">
+              {{ editingApp ? 'Mettre à jour' : 'Créer' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Table des applications -->
+    <div class="table-container" *ngIf="!showCreateForm">
+      <table class="apps-table" *ngIf="getSectionApps().length > 0; else noApps">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Thème</th>
+            <th>Département</th>
+            <th>Performance</th>
+            <th>Statut</th>
+            <th>Date de création</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let app of getSectionApps()">
+            <td class="app-name">{{ app.name }}</td>
+            <td>{{ app.theme || '---' }}</td>
+            <td>
+              <span class="dept-badge" [class]="'dept-' + app.department.toLowerCase()">{{ app.department }}</span>
+            </td>
+            <td>
+              <span class="perf-badge" [class]="'perf-' + app.performance.toLowerCase()">
+                {{ app.performance }}
+              </span>
+            </td>
+            <td>
+              <span class="status-badge" [class]="'status-' + app.status">
+                {{ app.status === 'active' ? 'Actif' : 'Inactif' }}
+              </span>
+            </td>
+            <td>{{ app.created_at | date:'dd/MM/yyyy' }}</td>
+            <td>
+              <div class="table-actions" *ngIf="isAdmin; else readOnly">
+                <button class="btn-icon" (click)="toggleStatus(app)" title="Changer le statut">
+                  {{ app.status === 'active' ? '⏸️' : '▶️' }}
+                </button>
+                <button class="btn-icon" (click)="editApplication(app)" title="Modifier">✏️</button>
+                <button class="btn-icon danger" (click)="deleteApplication(app.id!)" title="Supprimer">🗑️</button>
+              </div>
+              <ng-template #readOnly><span class="text-muted">—</span></ng-template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #noApps>
+        <div class="no-apps">
+          <h3>Aucune application trouvée</h3>
+          <p>Commencez par créer votre première application dans cette section.</p>
+          <button class="btn btn-primary" (click)="showCreateForm = true">
+            + Créer une application
+          </button>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- Monitoring & Historique -->
+    <div class="analytics-grid">
+      <div class="monitor-card">
+        <h3>Monitoring</h3>
+        <div class="metric">
+          <div class="metric-label">Applications actives</div>
+          <div class="progress">
+            <div class="progress-bar" [style.width.%]="(getActiveApps().length / Math.max(getSectionApps().length, 1)) * 100"></div>
+          </div>
+          <div class="metric-values">{{ getActiveApps().length }} / {{ getSectionApps().length }}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Performances moyennes</div>
+          <div class="perf-chip">{{ getAveragePerformance() }}</div>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <h3>Historique</h3>
+        <ul class="history-list">
+          <li *ngFor="let h of history">
+            <span class="history-time">{{ h.time }}</span>
+            <span class="history-action">{{ h.action }}</span>
+            <span class="history-detail" *ngIf="h.detail">— {{ h.detail }}</span>
+          </li>
+          <li *ngIf="history.length === 0" class="text-muted">Aucune action récente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
